@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterFragment">
+    tools:context=".ui.RegisterFragment">
 
     <ImageView
         android:id="@+id/imageView"
@@ -13,11 +13,14 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="32dp"
+        tools:alpha="1"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/image_register" />
+        app:srcCompat="@drawable/image_register"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/titleTextView"
@@ -29,6 +32,8 @@
         android:text="@string/title_register_page"
         android:textSize="20sp"
         android:textStyle="bold"
+        tools:alpha="1"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,6 +48,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
+        tools:alpha="1"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView"
@@ -66,12 +73,14 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:hint="@string/input_email"
+        tools:alpha="1"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameEditTextLayout"
         app:startIconDrawable="@drawable/ic_baseline_email_24">
 
-        <dev.thorcode.storyapp.MyEmailEditText
+        <dev.thorcode.storyapp.customview.MyEmailEditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,13 +98,15 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:hint="@string/input_password"
+        tools:alpha="1"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailEditTextLayout"
         app:passwordToggleEnabled="true"
         app:startIconDrawable="@drawable/ic_baseline_key_24">
 
-        <dev.thorcode.storyapp.MyPasswordEditText
+        <dev.thorcode.storyapp.customview.MyPasswordEditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -115,6 +126,8 @@
         android:textColor="@color/white"
         android:backgroundTint="@color/bluePrimary"
         android:text="@string/register"
+        tools:alpha="1"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout" />
@@ -127,8 +140,22 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:text="@string/haveAccount"
+        tools:alpha="1"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerButton" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

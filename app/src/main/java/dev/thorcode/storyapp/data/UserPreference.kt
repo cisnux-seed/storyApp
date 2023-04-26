@@ -1,4 +1,4 @@
-package dev.thorcode.storyapp
+package dev.thorcode.storyapp.data
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -23,13 +23,8 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
     suspend fun saveUser(user: UserModel) {
         dataStore.edit { preferences ->
             preferences[NAME_KEY] = user.name
+            preferences[TOKEN] = user.token
             preferences[STATE_KEY] = user.isLogin
-        }
-    }
-
-    suspend fun login() {
-        dataStore.edit { preferences ->
-            preferences[STATE_KEY] = true
         }
     }
 

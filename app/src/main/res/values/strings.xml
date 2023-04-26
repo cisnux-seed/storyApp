@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">StoryApp</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="input_password">Password</string>
     <string name="input_email">Email</string>
     <string name="title_login_page">Login StoryApp</string>
@@ -12,4 +11,17 @@
     <string name="haveAccount">Already have an account? Login</string>
     <string name="register">Register</string>
     <string name="username_hint">Username</string>
+    <string name="tv_name">Thoriq</string>
+    <string name="createdAt">01-04-2023</string>
+    <string name="description">lorem ipsum ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus viverra vitae congue eu consequat ac felis donec</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="upload">Upload</string>
+    <string name="masukkan_story_anda">Input Your Story</string>
+    <string name="camera_access_message">Camera Permission was Denied</string>
+    <string name="message_isempty">Please Enter your Story</string>
+    <string name="logout">logout</string>
+    <string name="yeahh">Yeahh!!</string>
+    <string name="created_account_success">Created Account Successfully</string>
+    <string name="something_went_wrong">Something went wrong</string>
 </resources>

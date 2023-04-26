@@ -1,4 +1,4 @@
-package dev.thorcode.storyapp
+package dev.thorcode.storyapp.customview
 
 import android.content.Context
 import android.text.Editable

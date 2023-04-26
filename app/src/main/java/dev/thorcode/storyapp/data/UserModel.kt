@@ -1,4 +1,4 @@
-package dev.thorcode.storyapp
+package dev.thorcode.storyapp.data
 
 data class UserModel(
     val name: String,
