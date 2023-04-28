@@ -144,7 +144,7 @@ class AddStoryFragment : Fragment() {
         if (it.resultCode == RESULT_OK) {
             val selectedImg = it.data?.data as Uri
             selectedImg.let { uri ->
-                val myFile = uriToFile(uri, requireContext())
+                val myFile = uriToFile(uri, requireActivity())
                 uploadFile = myFile
                 binding.imageAddStory.setImageURI(uri)
             }
