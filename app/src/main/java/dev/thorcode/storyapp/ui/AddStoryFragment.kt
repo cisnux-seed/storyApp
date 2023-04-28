@@ -125,10 +125,6 @@ class AddStoryFragment : Fragment() {
         ActivityResultContracts.StartActivityForResult()
     ){
         if (it.resultCode == RESULT_OK) {
-            @Suppress("DEPRECATION")
-            val imageBitmap = it.data?.extras?.get("data") as Bitmap
-            binding.imageAddStory.setImageBitmap(imageBitmap)
-
             val myFile = File(currentPhotoPath)
 
             myFile.let { file ->
