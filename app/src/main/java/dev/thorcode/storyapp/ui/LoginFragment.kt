@@ -24,6 +24,8 @@ import dev.thorcode.storyapp.utils.Result
 import dev.thorcode.storyapp.data.UserModel
 import dev.thorcode.storyapp.data.ViewModelFactory
 import dev.thorcode.storyapp.api.LoginUserReq
+import dev.thorcode.storyapp.customview.MyButton
+import dev.thorcode.storyapp.customview.MyPasswordEditText
 import dev.thorcode.storyapp.databinding.FragmentLoginBinding
 import dev.thorcode.storyapp.model.HomeViewModel
 import dev.thorcode.storyapp.model.LoginViewModel
@@ -80,6 +82,7 @@ class LoginFragment : Fragment() {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 @Suppress("DEPRECATION")
+                setMyButtonEnable()
                 binding.passwordEditTextLayout.isPasswordVisibilityToggleEnabled = binding.passwordEditText.error == null
             }
 
@@ -129,6 +132,12 @@ class LoginFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun setMyButtonEnable() {
+        val emailText = binding.emailEditText.text
+        val passwordText = binding.passwordEditText.text
+        binding.loginButton.isEnabled = emailText.toString().isNotEmpty() && passwordText.toString().length >= 8
     }
 
     private fun showLoading(loading: Boolean) {

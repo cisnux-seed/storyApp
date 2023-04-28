@@ -35,12 +35,28 @@ class UserRepository(private val userPreferences: UserPreference, private val ap
 
     fun getAllStories(): LiveData<List<ListStory>> = liveData {
         val token = "Bearer ${userPreferences.getUser().first().token}"
-        emit(apiService.getAllStories(token).listStory)
+        if (token.isEmpty()) {
+            emit(emptyList())
+        } else {
+            try {
+                emit(apiService.getAllStories(token).listStory)
+            } catch (e: Exception) {
+                emit(emptyList())
+            }
+        }
     }
 
-    suspend fun getDetailStory(id: String): DetailStory {
+    suspend fun getDetailStory(id: String): DetailStory? {
         val token = "Bearer ${userPreferences.getUser().first().token}"
-        return apiService.getDetailStory(id, token)
+        if (token.isEmpty()) {
+            return null
+        }
+        return try {
+            apiService.getDetailStory(id, token)
+        } catch (e: Exception) {
+            Log.e(UserRepository::class.simpleName, "Error getting detail story: ${e.message}", e)
+            null
+        }
     }
 
     fun addStory(imageMultipart: MultipartBody.Part, description: RequestBody)= liveData {
@@ -49,7 +65,7 @@ class UserRepository(private val userPreferences: UserPreference, private val ap
             val token = "Bearer ${userPreferences.getUser().first().token}"
             apiService.addStory(token, imageMultipart, description)
             emit(Result.Success(null))
-        }catch (e: Exception){
+        } catch (e: Exception){
             emit(Result.Error(e.message ?: ""))
         }
     }
@@ -60,7 +76,6 @@ class UserRepository(private val userPreferences: UserPreference, private val ap
 
     suspend fun saveUser(user: UserModel) {
         userPreferences.saveUser(user)
-        Log.d(UserRepository::class.simpleName, userPreferences.getUser().first().isLogin.toString())
     }
 
     suspend fun logout() {

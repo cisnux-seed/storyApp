@@ -7,7 +7,6 @@ import android.util.AttributeSet
 import com.google.android.material.textfield.TextInputEditText
 
 class MyPasswordEditText : TextInputEditText {
-
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
@@ -17,7 +16,6 @@ class MyPasswordEditText : TextInputEditText {
     init {
         addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -26,7 +24,6 @@ class MyPasswordEditText : TextInputEditText {
 
             override fun afterTextChanged(p0: Editable?) {
             }
-
         })
     }
 }

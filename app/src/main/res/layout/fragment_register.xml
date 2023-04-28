@@ -116,15 +116,15 @@
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <dev.thorcode.storyapp.customview.MyButton
         android:id="@+id/registerButton"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginStart="32dp"
+        android:enabled="false"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:textColor="@color/white"
-        android:backgroundTint="@color/bluePrimary"
         android:text="@string/register"
         tools:alpha="1"
         android:alpha="0"

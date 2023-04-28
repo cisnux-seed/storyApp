@@ -75,6 +75,7 @@ class RegisterFragment : Fragment() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 @Suppress("DEPRECATION")
                 binding.passwordEditTextLayout.isPasswordVisibilityToggleEnabled = binding.passwordEditText.error == null
+                setMyButtonEnable()
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -103,12 +104,6 @@ class RegisterFragment : Fragment() {
                 name.isEmpty() -> {
                     binding.usernameEditText.error = "Please input your username"
                 }
-                email.isEmpty() -> {
-                    binding.emailEditText.error = "Please input your email"
-                }
-                password.isEmpty() -> {
-                    binding.passwordEditText.error = "Please input your password"
-                }
                 else -> {
                     when (result) {
                         is Result.Success -> {
@@ -135,8 +130,14 @@ class RegisterFragment : Fragment() {
                     }
                 }
             }
-
         }
+    }
+
+    private fun setMyButtonEnable() {
+        val usernameText = binding.usernameEditText.text
+        val emailText = binding.emailEditText.text
+        val passwordText = binding.passwordEditText.text
+        binding.registerButton.isEnabled = usernameText.toString().isNotEmpty() && emailText.toString().isNotEmpty() && passwordText.toString().length >= 8
     }
 
     @SuppressLint("Recycle")

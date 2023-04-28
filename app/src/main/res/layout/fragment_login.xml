@@ -19,8 +19,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/image_login"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/image_login" />
 
     <TextView
         android:id="@+id/titleTextView"
@@ -111,17 +110,17 @@
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <dev.thorcode.storyapp.customview.MyButton
         android:id="@+id/loginButton"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:enabled="false"
         tools:alpha="1"
         android:alpha="0"
         android:layout_marginEnd="32dp"
         android:textColor="@color/white"
-        android:backgroundTint="@color/bluePrimary"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
