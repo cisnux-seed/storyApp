@@ -99,7 +99,7 @@ class AddStoryFragment : Fragment() {
 
     private fun startTakePhoto() {
         val intentToCamera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        launcherIntentCamera.launch(intentToCamera)
+        intentToCamera.resolveActivity(requireActivity().packageManager)
 
         createCustomTempFile(requireContext()).also {
             val photoURI: Uri = FileProvider.getUriForFile(
